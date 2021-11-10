@@ -5,13 +5,13 @@ import pylab as pylab
 import matplotlib.pyplot as plt
 
 connection_string = 'COM7:19200,8,N,1'  #Checker dans le device manager du pc (COM? et baudrate)
-sara = '1000000000' #Taux d'échantillonnage 1GS/s (vérifier avant mesures)
+sara = '1000000000' #Taux d'échantillonnage 1GS/s (vérifier et adapter avant mesures)
 
 def vicpactivedso():
     try:
         print('Trying to make a connection to : COM7:19200,8,N,1')
         dso = LeCroyDSO(ActiveDSO('COM7:19200,8,N,1'))
-        print(dso.query('*IDN?'))
+        print(dso.query('*IDN?')) #identification
         dso.set_default_state()
         
         # send VBS style command
